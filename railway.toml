@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pip install -r requirements.txt"
+buildCommand = "apt-get update && apt-get install -y python3-dev default-libmysqlclient-dev build-essential pkg-config && pip install -r requirements.txt"
 
 [deploy]
 startCommand = "gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 wsgi:app"
